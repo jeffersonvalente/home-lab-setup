@@ -2,15 +2,6 @@
 
 Este repositório documenta e automatiza o processo de configuração do seu Home Lab. Inicialmente, o projeto contempla a instalação do k3s (https://k3s.io/), a configuração do kubectl e a integração com o New Relic (https://newrelic.com/) para monitoramento do cluster. Em futuras atualizações, outras ferramentas como Backstage, Argo, etc., serão adicionadas.
 
-## Estrutura do Repositório
-
-home-lab-setup/
-├── README.txt            # Documentação geral do projeto
-├── config.env            # Arquivo de variáveis de ambiente
-├── scripts/             
-│   └── install_home_lab.sh    # Script principal de instalação e configuração
-└── docs/                
-    └── installation.md  # Documentação detalhada do processo de instalação e configurações
 
 ## Como Utilizar
 
