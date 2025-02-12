@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: general
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/jeffersonvalente/argo-demo-repo.git
+        revision: HEAD
+        directories:
+          - path: "*/*"   # Procura por diretórios com dois níveis (namespace/microserviço)
+          # Se quiser percorrer níveis mais profundos, pode usar "*/**" com recurse: true:
+          # - path: "*/**"
+          #   recurse: true
+  template:
+    metadata:
+      name: "{{path[1]}}"   # O nome da aplicação será o segundo nível (ex.: microservicoA)
+    spec:
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: false
+      project: "{{path[0]}}"   # O projeto será definido pelo primeiro nível (ex.: namespace1)
+      source:
+        repoURL: https://github.com/jeffersonvalente/argo-demo-repo.git
+        targetRevision: HEAD
+        path: "{{path[0]}}/{{path[1]}}"   # Caminho completo para os manifests
+        helm:
+          releaseName: "{{path[1]}}"
+          valueFiles:
+            - "/{{path[0]}}/{{path[1]}}/values.yaml"
+            - "/{{path[0]}}/{{path[1]}}/secrets.yaml"  # Mesmo que esteja vazio, garante que o arquivo exista
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: "{{path[0]}}"  # O namespace onde a aplicação será implantada

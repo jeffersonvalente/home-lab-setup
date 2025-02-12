@@ -45,6 +45,7 @@ NR_CLI_CURATED=false \
 NR_CLI_AGENT_OPERATOR=true \
 NR_CLI_LOGGING=true \
 NR_CLI_LOGGING_LOW_DATA_MODE=true \
+NEW_RELIC_LOG_LEVEL=error \
 NEW_RELIC_API_KEY="${NEW_RELIC_API_KEY}" \
 NEW_RELIC_ACCOUNT_ID="${NEW_RELIC_ACCOUNT_ID}" \
 /usr/local/bin/newrelic install -n kubernetes-open-source-integration

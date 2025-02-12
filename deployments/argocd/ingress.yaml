@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argocd
+  namespace: argocd
+  annotations:
+    cert-manager.io/cluster-issuer: argocd-issuer
+    acme.cert-manager.io/http01-edit-in-place: "true"
+    # Anotações Traefik:
+    traefik.ingress.kubernetes.io/router.entrypoints: "web,websecure"
+    traefik.ingress.kubernetes.io/redirect-entrypoint: "https"
+    traefik.ingress.kubernetes.io/service.scheme: "http"
+spec:
+  ingressClassName: traefik
+  tls:
+  - secretName: argocd-tls
+    hosts:
+      - "argocd.local"  # Substitua pelo seu domínio real; se for ambiente local, por exemplo, "argocd.local"
+  rules:
+  - host: "argocd.local"  # Mesma alteração aqui
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: argocd-server
+            port:
+              number: 80
