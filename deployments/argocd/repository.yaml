@@ -7,6 +7,6 @@ metadata:
     argocd.argoproj.io/secret-type: repository
 stringData:
   type: git
-  url: <<SEU REPOSITORIO>>
+  url: $(REPO_URL)
   sshPrivateKey: |
-            <SUA CHAVE PRIVADA>
+    $(SSH_PRIVATE_KEY)
