@@ -5,7 +5,7 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/jeffersonvalente/argo-demo-repo.git
+        repoURL: <<SEU REPOSITORIO>>
         revision: HEAD
         directories:
           - path: "*/*"   # Procura por diretórios com dois níveis (namespace/microserviço)
@@ -22,7 +22,7 @@ spec:
           selfHeal: false
       project: "{{path[0]}}"   # O projeto será definido pelo primeiro nível (ex.: namespace1)
       source:
-        repoURL: https://github.com/jeffersonvalente/argo-demo-repo.git
+        repoURL: <<SEU REPOSITORIO>>
         targetRevision: HEAD
         path: "{{path[0]}}/{{path[1]}}"   # Caminho completo para os manifests
         helm:

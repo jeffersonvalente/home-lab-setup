@@ -7,8 +7,12 @@ metadata:
     argocd.argoproj.io/secret-type: repository
 stringData:
   type: git
-  url: SEUREPO
+  url: git@github.com:jeffersonvalente/home-lab-setup.git
   sshPrivateKey: |
     -----BEGIN OPENSSH PRIVATE KEY-----
-            SUA CHAVE PRIVADA
+    b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
+    QyNTUxOQAAACBG1Q4GqYyUJCwiODBR/J8gKM8cX159jVDH0w9OjLz42wAAAJjEOr5exDq+
+    XgAAAAtzc2gtZWQyNTUxOQAAACBG1Q4GqYyUJCwiODBR/J8gKM8cX159jVDH0w9OjLz42w
+    AAAECmaNcuA5yDZMKrdQvME+6wzXZqi786WHSlsnZLv/sW+0bVDgapjJQkLCI4MFH8nyAo
+    zxxfXn2NUMfTD06MvPjbAAAAFGplZmZAREVTS1RPUC1WMUdNQzlOAQ==
     -----END OPENSSH PRIVATE KEY-----
