@@ -1,49 +1,77 @@
-# Home Lab Setup
 
-Este repositório documenta e automatiza o processo de configuração do seu Home Lab. Inicialmente, o projeto contempla a instalação do k3s (https://k3s.io/), a configuração do kubectl e a integração com o New Relic (https://newrelic.com/) para monitoramento do cluster. Em futuras atualizações, outras ferramentas como Backstage, Argo, etc., serão adicionadas.
+# Home Lab Setup com K3s e Monitoramento via New Relic
 
+Esse projeto documenta e automatiza a configuração de um ambiente de Home Lab — começando com um cluster K3s leve, funcional e já integrado com o New Relic para monitoramento desde o primeiro deploy.
 
-## Como Utilizar
+Ideal pra quem quer testar arquitetura, observabilidade e automações num ambiente local antes de aplicar em produção.
 
-1. **Clone o repositório:**
+---
 
-   ```bash
-   git clone https://github.com/seu-usuario/home-lab-setup.git
-   cd home-lab-setup
-   ```
+## O que está incluído aqui
 
-2. **Edite o arquivo de variáveis de ambiente:**
+- Instalação automatizada do **K3s**
+- Configuração do **kubectl** com permissões ajustadas
+- Integração com o **New Relic** via CLI
+- Variáveis de ambiente parametrizadas em `config.env`
+- Scripts prontos para extender com ferramentas como **Backstage**, **ArgoCD** e mais
 
-   Abra o arquivo `config.env` e atualize os valores conforme a sua configuração. Por exemplo:
+---
 
-   ```bash
-   nano config.env
-   ```
+## Como usar
 
-3. **Executar o script de instalação:**
+1. Clone o repositório
 
-   Dê permissão de execução ao script e execute-o:
+```bash
+git clone https://github.com/seu-usuario/home-lab-setup.git
+cd home-lab-setup
+```
 
-   ```bash
-   chmod +x scripts/install_home_lab.sh
-   ./scripts/install_home_lab.sh
-   ```
+2. Edite as variáveis de ambiente
 
-## O que o Script Faz
+```bash
+nano config.env
+```
 
-- **Instala o k3s:**  
-  Executa o comando `curl -sfL https://get.k3s.io | sh -` para instalar o k3s.
+3. Execute o script de instalação
 
-- **Configura o kubectl:**  
-  Cria o diretório `~/.kube` (caso não exista) e copia o arquivo `/etc/rancher/k3s/k3s.yaml` para `~/.kube/config`, ajustando as permissões para o usuário atual.
+```bash
+chmod +x scripts/install_home_lab.sh
+./scripts/install_home_lab.sh
+```
 
-- **Integra o New Relic:**  
-  Instala o New Relic CLI e configura o monitoramento do cluster utilizando as variáveis definidas em `config.env`.
+---
 
-## Contribuição
+## O que o script faz
 
-Contribuições são bem-vindas! Caso deseje adicionar novas ferramentas ou melhorias, por favor, abra uma issue ou envie um pull request.
+```plaintext
+scripts/install_home_lab.sh
+├── Instala o K3s com curl direto do site oficial
+├── Configura o kubeconfig em ~/.kube/config
+├── Ajusta permissões e diretórios
+└── Instala o New Relic CLI e aplica as credenciais do config.env
+```
+
+---
+
+## Próximas etapas (em andamento)
+
+- Deploy automatizado do **Backstage** como portal de plataforma
+- Integração com **ArgoCD** para GitOps local
+- Monitoramento expandido com dashboards e alertas no New Relic
+
+---
+
+## Contribuições
+
+Quer sugerir uma ferramenta nova ou melhorar algo do fluxo?  
+Pull requests e issues são bem-vindos.
+
+---
 
 ## Licença
 
-Este projeto está licenciado sob a MIT License.
+MIT — veja o arquivo LICENSE
+
+---
+
+📫 [LinkedIn](https://www.linkedin.com/in/jefferson-hoy-valente/)
