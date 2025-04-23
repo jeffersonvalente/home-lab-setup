@@ -68,10 +68,4 @@ Pull requests e issues são bem-vindos.
 
 ---
 
-## Licença
-
-MIT — veja o arquivo LICENSE
-
----
-
 📫 [LinkedIn](https://www.linkedin.com/in/jefferson-hoy-valente/)
